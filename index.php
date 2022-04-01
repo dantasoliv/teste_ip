@@ -10,7 +10,8 @@
         $teste = 'IP Público:';
         echo "<h3>$teste</h3>";
         echo "<hr>";
-        $ip = file_get_contents('https://api.ipify.org'); // Solicitando dados de uma API para identifiar o IP publico
+        $ip = getenv ("REMOTE_ADDR"); // função para identificar ip do usuario
+        // $ip = file_get_contents('https://api.ipify.org'); // Solicitando dados de uma API para identifiar o IP publico
         echo "<h2>$ip</h2>";
         $lista = file_get_contents("https://api.techniknews.net/ipgeo/{$ip}"); # Solicitando para uma API dados da geolocalização de um IP
         $info = json_decode($lista, true);
